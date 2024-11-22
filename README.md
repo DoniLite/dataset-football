@@ -39,6 +39,8 @@ Lien vers la vidéo YouTube : [https://www.youtube.com/watch?v=tzM_TEbp0OE](http
 
 ## Installation
 
+ > ⚠️ **Attention** : Vous ètes prié de bien vouloir lire [Les notes de contribution](./Notes.md) avant d'effectuer toute action sur ce projet.
+
 1. Clonez le dépôt :
 
    ```bash
@@ -76,12 +78,16 @@ Lien vers la vidéo YouTube : [https://www.youtube.com/watch?v=tzM_TEbp0OE](http
       make
    ```
 
-4. Créez une base de données SQL nommée "football" et importez la base de donnée qui se trouve dans le projet.
+    > ⚠️ **Attention** : Gardez le gestionnaire de package toujours à jour après une quelconqe installation de module avec `make freeze`
 
-5. Groupe de discussion Telegram : [https://t.me/+i1lvynnUuexkZjBk](https://t.me/+i1lvynnUuexkZjBk)
+4. Créez une base de données `postgresql` local sur votre machine.
 
-6. Faites vos améliorations et proposez de nouvelles solutions.
+5. Créez un fichier d'environnement avec `touch .env` et insérez y un lien vers votre base de données **postgres** locale dans **DATABASE_URL="lien_vers_votre_db"**.
 
-## NB : Si le navigateur vous demande de choisir un moteur de recherche lorsque vous lancez le script, veuillez choisir Google.
+6. Groupe de discussion Telegram : [https://t.me/+i1lvynnUuexkZjBk](https://t.me/+i1lvynnUuexkZjBk)
+
+7. Faites vos améliorations et proposez de nouvelles solutions.
+
+## NB : Si le navigateur vous demande de choisir un moteur de recherche lorsque vous lancez le script, veuillez choisir Google
 
 Bon code à tous !
