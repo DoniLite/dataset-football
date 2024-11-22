@@ -3,6 +3,8 @@ import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import Session
 
+from config.schemas import Base
+
 load_dotenv()
 
 DATABASE_URL = os.getenv('DATABASE_URL')
@@ -16,3 +18,6 @@ engine = create_engine(
 )
 
 session = Session(bind=engine)
+
+
+Base.metadata.create_all(engine)

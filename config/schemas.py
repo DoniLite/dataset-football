@@ -1,6 +1,6 @@
 from typing import List
 from typing import Optional
-from sqlalchemy import ForeignKey
+from sqlalchemy import ForeignKey, Integer
 from sqlalchemy import String
 from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy.orm import Mapped
@@ -13,7 +13,7 @@ class Base(DeclarativeBase):
 class Championship(Base):
     __tablename__ = "championship_infos"
     # Clé primaire
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
     
     # Informations temporelles
     date_text: Mapped[Optional[str]]
@@ -21,8 +21,8 @@ class Championship(Base):
     day: Mapped[str]
     
     # Identifiants
-    match_id: Mapped[int] = mapped_column(int, unique=True)
-    coupe_id: Mapped[Optional[int]] = mapped_column('id_coupe', int, nullable=True)
+    match_id: Mapped[int] = mapped_column(Integer, unique=True)
+    coupe_id: Mapped[Optional[int]] = mapped_column('id_coupe', Integer, nullable=True)
 
     # Équipe A
     team_a_logo_url: Mapped[Optional[str]]
@@ -66,7 +66,7 @@ class Championship(Base):
     
 class Team(Base):
     __tablename__ = "team_infos"
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
     name: Mapped[str]
     players: Mapped[list["Player"]] = relationship(back_populates="team", cascade="all, delete-orphan")
     def __repr__(self) -> str:
@@ -74,7 +74,7 @@ class Team(Base):
 
 class Player(Base):
     __tablename__ = "player_infos"
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
     full_name: Mapped[str]
     team_id: Mapped[int] = mapped_column(ForeignKey("team_infos.id"))
     team: Mapped["Team"] = relationship(back_populates="players")

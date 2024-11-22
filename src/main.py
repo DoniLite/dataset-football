@@ -1,7 +1,9 @@
 
+from enum import Enum
 import time
 import os
 from datetime import datetime
+from typing import Literal, Union
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -23,7 +25,7 @@ retry = 0
 max_retry = 8
 
 
-
+# Function to update the stats in the Database
 def update_statistics_in_database(stats_data, idCoup):
    
     try:
@@ -65,6 +67,8 @@ def update_statistics_in_database(stats_data, idCoup):
                 'team_a_red_cards', 'team_b_red_cards', 'team_a_offsides', 'team_b_offsides', 'team_a_corners', 
                 'team_b_corners', 'team_a_goal_times', 'team_b_goal_times'
             ]])
+            
+            # print(update_values)
 
             cursor.execute(f'''
     UPDATE euro
@@ -182,8 +186,11 @@ def parse_date(date_str):
 
     raise ValueError(f"Date string {date_str} does not match any known format.")
 
+class DateComparison(str, Enum):
+    PAST="past"
+    FUTURE="future"
 
-def compare_with_today(date_str):
+def compare_with_today(date_str: str) -> DateComparison:
     try:
         date_obj = parse_date(date_str)
         date_only = date_obj.date()
@@ -392,7 +399,7 @@ def main():
 
             
 
-        for index, child_div in enumerate(main_div):
+        for _, child_div in enumerate(main_div):
             """"
             if index == 0:
                 continue 
