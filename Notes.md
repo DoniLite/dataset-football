@@ -32,3 +32,4 @@ Le journal qui suit comporte l'ensemble des modifications effectuées sur le pro
 ## TODOS
 
 - **Executer `make install` pour mettre à jour votre projet avec les dépendences requises**
+- **Créez une base de donnéés locale PostgreSQL pour vos test**
