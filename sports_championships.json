@@ -1,0 +1,42 @@
+{
+    "Football": {
+        "FIFA World Cup": "https://www.fifa.com",
+        "UEFA Champions League": "https://www.uefa.com",
+        "Premier League": "https://www.premierleague.com",
+        "LaLiga": "https://www.laliga.com",
+        "Serie A": "https://www.legaseriea.it",
+        "Bundesliga": "https://www.bundesliga.com",
+        "Ligue 1": "https://www.ligue1.com"
+    },
+    "Basketball": {
+        "NBA": "https://www.nba.com",
+        "EuroLeague": "https://www.euroleaguebasketball.net",
+        "FIBA World Cup": "https://www.fiba.basketball"
+    },
+    "Tennis": {
+        "ATP Tour": "https://www.atptour.com",
+        "WTA Tour": "https://www.wtatennis.com",
+        "Grand Slam": {
+            "Wimbledon": "https://www.wimbledon.com",
+            "Roland-Garros": "https://www.rolandgarros.com",
+            "US Open": "https://www.usopen.org",
+            "Australian Open": "https://www.ausopen.com"
+        }
+    },
+    "Athletics": {
+        "World Athletics Championships": "https://www.worldathletics.org"
+    },
+    "Rugby": {
+        "Rugby World Cup": "https://www.rugbyworldcup.com",
+        "Six Nations": "https://www.sixnationsrugby.com",
+        "Super Rugby": "https://super.rugby"
+    },
+    "Formula 1": {
+        "F1 World Championship": "https://www.formula1.com"
+    },
+    "Others": {
+        "Olympic Games": "https://www.olympic.org",
+        "UFC": "https://www.ufc.com",
+        "Tour de France": "https://www.letour.fr"
+    }
+}
