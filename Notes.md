@@ -50,3 +50,5 @@ Résumé de l'ensemble des modifications et apports effectués en ce jour sur le
 - **Ecrire les fonction de crawle dans les fichiers dédiés à chaque championat en vue de séparer la logique**
 - **Chaque fonction destiné à un job de crawling doit recevoir deux paramètres principaux #1 `le driver` #2 `le lien à crawler` suivi de la logique**
 -**Lorsque vous modifiez le Schema de la base de données assurez vous de rendre `optionnel` toutes les nouvelles entrées pour éviter des conflits de migrations**
+- **Utiliser des alias sur les imports du package `championship` pour éviter les conflits**
+- **refacto le code du module principal pour le rendrre plus modulaire en séparant les fonctions utilitaires du code principal**
