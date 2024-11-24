@@ -81,6 +81,50 @@ freeze:
 docs:
 	$(PYTHON) -m pdoc --html --output-dir docs $(SRC_DIR)
 
+# Vérifie que le message de migration est fourni
+check-message:
+ifndef m
+	$(error La description de la migration est requise. Utilisez 'make migration m="description"')
+endif
+
+# Vérifie que la révision est fournie
+check-revision:
+ifndef revision
+	$(error Le numéro de révision est requis. Utilisez 'make downgrade-to revision=<revision_id>')
+endif
+
+# Génère une nouvelle migration
+migration: check-message
+	alembic revision --autogenerate -m "$(m)"
+
+# Applique toutes les migrations en attente
+migrate:
+	alembic upgrade head
+
+# Revient en arrière d'une migration
+downgrade:
+	alembic downgrade -1
+
+# Revient à une migration spécifique
+downgrade-to: check-revision
+	alembic downgrade $(revision)
+
+# Affiche l'état actuel des migrations
+migration-status:
+	alembic current
+
+# Affiche l'historique des migrations
+migration-history:
+	alembic history
+
+# Réinitialise la base de données (revient au début)
+migration-reset:
+	alembic downgrade base
+
+# Combine la génération et l'application de la migration
+migrate-full: check-message
+	alembic revision --autogenerate -m "$(m)" && alembic upgrade head
+
 # Aide
 .PHONY: help
 help:
@@ -96,6 +140,14 @@ help:
 	@echo "  make security   - Lance les vérifications de sécurité"
 	@echo "  make freeze     - Met à jour requirements.txt"
 	@echo "  make docs       - Génère la documentation"
+	@echo "  make migration m='description'  - Génère une nouvelle migration"
+	@echo "  make migrate                   - Applique toutes les migrations"
+	@echo "  make downgrade                 - Revient en arrière d'une migration"
+	@echo "  make downgrade-to revision=id  - Revient à une migration spécifique"
+	@echo "  make migration-status          - Affiche l'état des migrations"
+	@echo "  make migration-history         - Affiche l'historique des migrations"
+	@echo "  make migration-reset           - Réinitialise la base de données"
+	@echo "  make migrate-full m='desc'     - Génère et applique une migration"
 
 # Par défaut
 .DEFAULT_GOAL := help

@@ -84,9 +84,17 @@ Lien vers la vidéo YouTube : [https://www.youtube.com/watch?v=tzM_TEbp0OE](http
 
 5. Créez un fichier d'environnement avec `touch .env` et insérez y un lien vers votre base de données **postgres** locale dans **DATABASE_URL="lien_vers_votre_db"**.
 
+   > ⚠️ **Attention** : assurez vous que votre base de donnéés est à jour en appliquant toutes les migrations requises
+
 6. Groupe de discussion Telegram : [https://t.me/+i1lvynnUuexkZjBk](https://t.me/+i1lvynnUuexkZjBk)
 
 7. Faites vos améliorations et proposez de nouvelles solutions.
+
+8. Si vous souhaitez avoir de l'aide sur les commandes exécutez:
+
+```bash
+   make
+```
 
 ## NB : Si le navigateur vous demande de choisir un moteur de recherche lorsque vous lancez le script, veuillez choisir Google
 
